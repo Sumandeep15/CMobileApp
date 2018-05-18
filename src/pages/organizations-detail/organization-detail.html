@@ -1,0 +1,96 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>Connectivity</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <section class="listing-wrapper mg-top-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card z-depth-1-half mg-top-18 mg-bottom-30">
+                        <div class="card-body">
+                            <div class="block">
+                                <ul class="widget-list">
+                                    <li class="row">
+                                        <div class="col-md-8">
+                                            <div class="event-img-wrapper">
+                                                <figure>
+                                                    <img srcset="{{currentItem.imagePath}}" title="" alt="event" class="img-fluid z-depth-1-half">
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="inner-content event-name">
+                                                <h5><a href="#">About Us</a></h5>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="event-content">
+                                                <p>
+                                                    {{AppUserModel.aboutUs}}
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="inner-content event-name">
+                                                <h5><a href="#">Contact Us</a></h5>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="event-content">
+                                                <p>
+                                                    {{AppUserModel.contactUs}}
+                                                </p>
+                                            </div>
+                                            <div class="event-social-icons pd-top-20">
+                                                <!--Social buttons-->
+                                                <div class="text-center">
+                                                    <ul class="list-unstyled list-inline">
+                                                        <li class="list-inline-item">
+                                                            <a class="btn-floating btn-sm btn-fb mx-1 z-depth-1">
+                                                                <i class="fa fa-facebook"> </i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <a class="btn-floating btn-sm btn-tw mx-1 z-depth-1">
+                                                                <i class="fa fa-twitter"> </i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <a class="btn-floating btn-sm btn-gplus mx-1 z-depth-1">
+                                                                <i class="fa fa-google-plus"> </i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <a class="btn-floating btn-sm btn-li mx-1 z-depth-1">
+                                                                <i class="fa fa-linkedin"> </i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <!--/.Social buttons-->
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="back-btn-wrapper">
+                        <a href="events.html" class="btn btn-default z-depth-2"><i class="fa fa-arrow-left"></i> </a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+</ion-content>

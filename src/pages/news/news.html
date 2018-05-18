@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>News</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" *ngFor="let item of currentItems">
+                <div class="card z-depth-1-half mg-top-60">
+                    <div class="card-body">
+                        <div class="block">
+                            <ul class="widget-list">
+                                <li>
+                                    <div class="date-wrapper">
+                                        <h4 class="text-center">{{item.day}} </h4>
+                                        <h6 class="text-center">{{item.month}}</h6>
+                                        <p class="text-center">{{item.month}}</p>
+                                    </div>
+                                    <div class="inner-content event-name">
+                                        <h5><b>{{item.companyName}}</b></h5>
+
+                                        <p><span> {{item.title}} </span></p>
+                                    </div>
+                                    <!--<div class="share-btn">
+                                        <a href="#" class="btn btn-primary btn-sm custom-btns share-btns pull-left waves-effect waves-light"><i class="fa fa-location-arrow"></i> </a>
+                                    </div>-->
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ion-content>

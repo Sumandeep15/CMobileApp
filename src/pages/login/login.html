@@ -1,0 +1,46 @@
+<ion-content>
+    <section class="registration-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="logo-container">
+                        <img src="./assets/images/logo-1.png" title="logo" alt="logo" class="img-fluid mx-auto d-block">
+                    </div>
+                </div>
+            </div>
+            <!--================-->
+            <div class="row pd-top-20">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <!-- Material form register -->
+                    <form (submit)="doLogin()">
+                        <!-- Material input text -->
+                        <div class="md-form">
+                            <i class="fa fa-user prefix grey-text text-white"></i>
+                            <input type="text" id="materialFormRegisterNameEx" [(ngModel)]="account.userName" name="Name" class="form-control custom-text">
+                            <label for="materialFormRegisterNameEx" class="text-white">Mobile/Email</label>
+                        </div>
+
+                        <!-- Material input text -->
+                        <div class="md-form">
+                            <i class="fa fa-building prefix grey-text text-white"></i>
+                            <input type="password" id="materialFormRegistercodeEx" [(ngModel)]="account.password" name="Email" class="form-control custom-text">
+                            <label for="materialFormRegistercodeEx" class="text-white">Password</label>
+                        </div>
+
+                        <!-- Material input email -->
+
+
+                        <div class="text-center mt-4">
+                            <button color="primary" class="btn btn-primary custom-btn z-depth-2" block>Login</button>
+
+
+                        </div>
+                    </form>
+                    <!-- Material form register -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</ion-content>

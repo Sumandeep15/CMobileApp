@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>Events</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card *ngFor="let item of currentItems">
+        <ion-card-content>
+            <ion-card-title>
+                {{item.activityName}}
+                <p> <span>{{item.strStartDate}} - {{item.strEndDate}}</span></p>
+
+            </ion-card-title>
+            <p>
+                {{item.activityDetail}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
