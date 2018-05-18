@@ -9,7 +9,7 @@ import { StorageService } from '../storage/storageservice';
  */
 @Injectable()
 export class Api {
-  url: string =  'http://localhost:2069/';//'http://8.38.88.31:85';//"http://8.38.88.31:85";//http://localhost:22222/
+  url: string =  'http://8.38.88.31:85/';//'http://8.38.88.31:85';//"http://8.38.88.31:85";//http://localhost:22222/
 //'http://localhost:2069/';//
   constructor(public http: HttpClient, private storage: StorageService) {
   }
