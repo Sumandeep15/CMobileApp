@@ -19,7 +19,7 @@ export class SignupPage {
   account: { Name: string, Email: string, Mobile: number, UUID: string,OTP:string } = {
     Name: '',
     Email: '',
-    Mobile: 1233223434,
+    Mobile: null,
     UUID: '',
     OTP:''
   };

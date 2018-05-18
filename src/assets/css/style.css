@@ -204,6 +204,7 @@
             border-radius: 0;
             box-sizing: content-box;
             background-color: transparent;
+            color: #fff;
         }
         
         .logo-container img {
@@ -269,7 +270,9 @@
         .widget-list li figure {
             float: left;
         }
-        
+        figure {
+            margin: 0 0 1rem !important;
+        }
         .widget-list li figure img {
             width: 54px;
             height: 54px;
@@ -396,7 +399,9 @@
         .favourite-btns.share-btns.view-btns {
             right: 22% !important;
         }
-        
+        .favourite-btns.share-btns.view-btnclass {
+            right: 27% !important;
+        }
         .event-name p,
         span {
             font-size: 13px;
@@ -1717,3 +1722,5 @@
             @media (max-width:375px) {}
             @media (max-width: 360px) {}
             @media (max-width:320px) {}
+        }
+        
