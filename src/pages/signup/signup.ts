@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController ,MenuController,LoadingController} from 'ionic-angular';
 import { SMS } from '@ionic-native/sms';
 import { User } from '../../providers/providers';
 import { Device } from '@ionic-native/device';
@@ -16,12 +16,12 @@ export class SignupPage {
   // sure to add it to the type
   SignUp: any;
   OTPSignUp: any;
-  account: { Name: string, Email: string, Mobile: number, UUID: string,OTP:string } = {
+  account: { Name: string, Email: string, Mobile: number, UUID: string, OTP: string } = {
     Name: '',
     Email: '',
     Mobile: null,
     UUID: '',
-    OTP:''
+    OTP: ''
   };
 
   // Our translated text strings
@@ -32,25 +32,49 @@ export class SignupPage {
     public toastCtrl: ToastController,
     public translateService: TranslateService,
     public device: Device,
-    private sms: SMS) {
+    private sms: SMS,
+    public menu:MenuController,
+      private loadingCtrl: LoadingController,) {
 
     this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
       this.signupErrorString = value;
       this.OTPSignUp = false;
       this.SignUp = true;
+      this.menu.enable(false, 'menu1');
+      this.menu.enable(false, 'menu2');
     })
   }
 
   doSignup() {
     //alert(this.device.uuid);
     this.account.UUID = this.device.uuid;
-    this.sms.send('9041423335', 'Hello world!');
+    //this.sms.send('9041423335', 'Hello world!');
     // Attempt to login in through our User service
-    this.user.signup(this.account).subscribe((resp:any) => {
+     let loadingPopup = this.loadingCtrl.create({
+      content: 'Processing...'
+    });
+    loadingPopup.present();//Loader
+    this.user.signup(this.account).subscribe((resp: any) => {
+       setTimeout(() => {
+        loadingPopup.dismiss();
+      }, 100);
       if (resp.status == 1) {
         this.OTPSignUp = true;
         this.SignUp = false;
-        //   this.navCtrl.push("LoginPage");
+        let toast = this.toastCtrl.create({
+          message: "Please check the OTP sent on your email address.",
+          duration: 3000,
+          position: 'top'
+        });
+         toast.present();
+      }
+      else if (resp.status == 2) {
+        let toast = this.toastCtrl.create({
+          message: "Already exists.",
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
       }
     }, (err) => {
 
@@ -65,15 +89,23 @@ export class SignupPage {
     });
   }
 
-  OTPSignup()
-  {
+  OTPSignup() {
     // this.account.UUID = this.device.uuid;
     // Attempt to login in through our User service
-    this.user.OTPsignup(this.account).subscribe((resp:any) => {
+    this.user.OTPsignup(this.account).subscribe((resp: any) => {
       if (resp) {
-         if (resp.status == 1) {
+        if (resp.status == 1) {
           this.navCtrl.push("LoginPage");
-         }
+        }
+        else if (resp.status==-1)
+        {
+            let toast = this.toastCtrl.create({
+          message: "Please entered a valid OTP.",
+          duration: 3000,
+          position: 'top'
+        });
+         toast.present();
+        }
       }
     }, (err) => {
 

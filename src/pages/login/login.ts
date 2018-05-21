@@ -20,8 +20,8 @@ export class LoginPage {
   // If you're using the username field with or without email, make
   // sure to add it to the type
   account: { userName: string, password: string, uuid: string } = {
-    userName: '1234567890',
-    password: '1234',
+    userName: '',
+    password: '',
     uuid: ''
   };
 
