@@ -18,7 +18,7 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { Organizations } from '../providers/providers';
 import { Device } from '@ionic-native/device';
-import { StorageService,Connections,News,Schedule,Events,GlobalVars,Services ,Gallery} from '../providers/providers';
+import { StorageService,Connections,News,Schedule,Events,GlobalVars,Services ,Gallery,Notifications} from '../providers/providers';
 import { SMS } from '@ionic-native/sms';
 import { AlertController } from 'ionic-angular';
 // The translate loader needs to know where to load i18n files
@@ -77,7 +77,7 @@ export function provideSettings(storage: Storage) {
     Device,
     StorageService,News,Schedule,Events,Connections,GlobalVars,
      SMS,Services,AlertController,
-     Gallery
+     Gallery,Notifications
   ]
 })
 export class AppModule { }

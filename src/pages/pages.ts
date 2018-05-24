@@ -21,5 +21,7 @@ export const ServicesPage='ServicesPage'
 export const OrganizationDetailPage='OrganizationDetailPage'
 export const MenuPage='MenuPage'
 export const GalleryPage='GalleryPage'
+export const NotificationsPage='NotificationsPage'
+
 
 

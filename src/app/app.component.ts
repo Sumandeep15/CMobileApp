@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 
-import { LoginPage,HomePage,ConnectionsPage,SchedulePage,ServicesPage,NewsPage,EventsPage ,GalleryPage} from '../pages/pages';
+import { LoginPage,HomePage,ConnectionsPage,SchedulePage,ServicesPage,NewsPage,EventsPage ,GalleryPage,NotificationsPage} from '../pages/pages';
 import { Settings } from '../providers';
 
 @Component({
@@ -42,6 +42,7 @@ pages1: any[] = [
  //   { title: 'Menu', component: 'MenuPage' },
 
      { title: 'Home', component:HomePage },
+      { title: 'Notifications', component:NotificationsPage },
     { title: 'News', component:NewsPage },
     { title: 'Events', component: EventsPage },
     { title: 'Schedule', component: SchedulePage },

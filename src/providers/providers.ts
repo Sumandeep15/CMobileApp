@@ -11,6 +11,7 @@ import { News } from './News/News';
 import { Services } from './Services/Services';
 import { GlobalVars } from './variables/variable';
 import { Gallery } from './gallery/gallery';
+import { Notifications } from './Notifications/Notifications';
 export {
   Api,
   Items,
@@ -22,5 +23,6 @@ export {
   Events,
   Schedule,News,Services,
   GlobalVars,
-  Gallery
+  Gallery,
+  Notifications
 };
