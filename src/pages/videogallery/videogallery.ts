@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
 import { Gallery, User, GlobalVars } from '../../providers/providers';
 import { Device } from '@ionic-native/device';
-import { MenuController, LoadingController, AlertController } from 'ionic-angular';
+import { MenuController, LoadingController ,AlertController} from 'ionic-angular';
 import * as $ from 'jquery';
 /**
  * Generated class for the OrganizationsPage page.
@@ -15,11 +15,10 @@ import * as $ from 'jquery';
 @IonicPage()
 @Component({
   selector: 'page-Gallery',
-  templateUrl: 'Gallery.html',
+  templateUrl: 'videogallery.html',
 })
-export class GalleryPage {
-  currentItems: [any];
-  galleryType = 'regular';
+export class VideogalleryPage {
+  currentItems: any;
   AppUserModel: { OrganizationId: any } = {
 
     OrganizationId: 0
@@ -46,24 +45,20 @@ export class GalleryPage {
         content: 'Processing...'
       });
       loadingPopup.present();//Loader
-      this.Gallery.GetCompanyGallery(this.AppUserModel).subscribe((resp: any) => {
+      this.Gallery.GetCompanyVideoGallery(this.AppUserModel).subscribe((resp: any) => {
         setTimeout(() => {
           loadingPopup.dismiss();
         }, 500);
-     //   alert("sssghhghghghs")
-        this.currentItems = resp.data[0].lst;
-      //  alert(JSON.stringify(this.currentItems))
-        if (this.currentItems == null || this.currentItems.length < 1) {
-          let alert1 = this.alertCtrl.create({
-            title: 'Message',
-            subTitle: 'Record not found.',
-            buttons: ['OK']
-          });
-          alert1.present();
-        }
-        else {
-          // this.galleryType = this.currentItems[0].galleryName
-        }
+
+        this.currentItems = resp.data;
+          if (this.currentItems == null || this.currentItems.length < 1) {
+        let alert1 = this.alertCtrl.create({
+          title: 'Message',
+          subTitle: 'Record not found.',
+          buttons: ['OK']
+        });
+        alert1.present();
+      }
       }, (err) => {
 
       });

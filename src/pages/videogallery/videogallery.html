@@ -12,9 +12,16 @@
         <ion-title>Gallery</ion-title>
     </ion-navbar>
 </ion-header>
+<ion-content>
+    <ion-list>
+        <div class="card" *ngFor="let img of currentItems">
+            <ion-item>
+                <div class="video-container">
 
+                    <iframe src="'img.mediaPath'" frameborder="0" width="560" height="315"></iframe>
+                </div>
+            </ion-item>
+        </div>
 
-<ion-content padding>
-    <p *ngFor="let img of currentItems" align="center"><img src="http://localhost:2069/{{img.mediaPath}}/{{img.mediaName}}"></p>
-
+    </ion-list>
 </ion-content>

@@ -12,7 +12,10 @@ export class Gallery {
   //  alert(params)
     return this.api.post('api/gurudwaraservices/GetCompanyGallery',params).share();
   }
-
+ GetCompanyVideoGallery(params?: any) {
+  //  alert(params)
+    return this.api.post('api/gurudwaraservices/GetCompanyVideoGallery',params).share();
+  }
   add(item: Item) {
   }
 

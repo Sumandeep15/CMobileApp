@@ -21,6 +21,7 @@ import { MenuController, LoadingController, AlertController } from 'ionic-angula
 export class OrganizationsPage {
 
   currentItems: any;
+  fullItems: any;
   AppUserModel: { OrganizationId: any } = {
 
     OrganizationId: 0
@@ -56,15 +57,34 @@ export class OrganizationsPage {
         this.navCtrl.push("LoginPage");
       }
       else {
-        this.currentItems = resp.data;
+        this.fullItems = this.currentItems = resp.data;
       }
       // alert(  JSON.stringify( this.currentItems));
     }, (err) => {
 
     });
   }
+  initializeItems(ev: any) {
+    this.currentItems = this.fullItems;
+  }
+  getItems(ev: any) {
+    // Reset items back to all of the items
+    this.initializeItems(ev);
 
+    // set val to the value of the searchbar
+    let val = ev.target.value;
 
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '' && this.currentItems != null) {
+      this.currentItems = this.currentItems.filter((item) => {
+
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1
+          || item.strCity.toLowerCase().indexOf(val.toLowerCase()) > -1
+          || item.strState.toLowerCase().indexOf(val.toLowerCase()) > -1
+          || item.strCountry.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
   ionViewDidLoad() {
     $(".menu1hide").show();
     $(".menu2hide").hide();

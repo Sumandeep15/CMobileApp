@@ -18,11 +18,15 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { Organizations } from '../providers/providers';
 import { Device } from '@ionic-native/device';
-import { StorageService,Connections,News,Schedule,Events,GlobalVars,Services ,Gallery,Notifications} from '../providers/providers';
+import { StorageService,FcmProvider, Connections, News, Schedule, Events, GlobalVars, Services, Gallery, Notifications } from '../providers/providers';
 import { SMS } from '@ionic-native/sms';
-import { AlertController } from 'ionic-angular';
-// The translate loader needs to know where to load i18n files
-// in Ionic's static asset pipeline.
+import { AlertController, Platform } from 'ionic-angular';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
+const firebase = {
+  // your firebase web config
+}
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -49,6 +53,7 @@ export function provideSettings(storage: Storage) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    IonicImageViewerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -68,16 +73,17 @@ export function provideSettings(storage: Storage) {
     Items,
     User,
     Camera,
+    FcmProvider,
     SplashScreen,
-    StatusBar,
+    StatusBar, Push,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Organizations,
     Device,
-    StorageService,News,Schedule,Events,Connections,GlobalVars,
-     SMS,Services,AlertController,
-     Gallery,Notifications
+    StorageService, News, Schedule, Events, Connections, GlobalVars,
+    SMS, Services, AlertController,
+    Gallery, Notifications
   ]
 })
 export class AppModule { }

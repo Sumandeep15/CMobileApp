@@ -12,6 +12,7 @@ import { Services } from './Services/Services';
 import { GlobalVars } from './variables/variable';
 import { Gallery } from './gallery/gallery';
 import { Notifications } from './Notifications/Notifications';
+import { FcmProvider } from './fcm/fcm';
 export {
   Api,
   Items,
@@ -24,5 +25,6 @@ export {
   Schedule,News,Services,
   GlobalVars,
   Gallery,
-  Notifications
+  Notifications,
+  FcmProvider
 };

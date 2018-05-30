@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "601505591245",
+    "firebase_url": "https://connectivity-d3c7b.firebaseio.com",
+    "project_id": "connectivity-d3c7b",
+    "storage_bucket": "connectivity-d3c7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601505591245:android:e2dc054b26455502",
+        "android_client_info": {
+          "package_name": "com.connectivity.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601505591245-pspukq7nmkek5s37m94e7tjmqc08gglh.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "601505591245-pspukq7nmkek5s37m94e7tjmqc08gglh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfHFUt9DghaenmIg600yOzJ7H0O4A4ecY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

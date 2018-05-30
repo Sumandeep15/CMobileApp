@@ -9,6 +9,8 @@
 <ion-content>
     <!--=============  Listing  ==============-->
 
+    <ion-searchbar [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" (ionCancel)="initializeItems($event)">
+    </ion-searchbar>
     <section class="listing-wrapper mg-top-30">
         <div class="container">
             <div class="row">

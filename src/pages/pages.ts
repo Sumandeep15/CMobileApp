@@ -22,6 +22,8 @@ export const OrganizationDetailPage='OrganizationDetailPage'
 export const MenuPage='MenuPage'
 export const GalleryPage='GalleryPage'
 export const NotificationsPage='NotificationsPage'
+export const VideogalleryPage='VideogalleryPage'
+
 
 
 
