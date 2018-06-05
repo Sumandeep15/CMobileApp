@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
 import * as $ from 'jquery';
-import { Organizations, StorageService, User, GlobalVars } from '../../providers/providers';
+import { Api, Organizations, StorageService, User, GlobalVars } from '../../providers/providers';
 import { Device } from '@ionic-native/device';
 import { MenuController, LoadingController, AlertController } from 'ionic-angular';
 /**
@@ -22,6 +22,7 @@ export class OrganizationsPage {
 
   currentItems: any;
   fullItems: any;
+  apiURL: any;
   AppUserModel: { OrganizationId: any } = {
 
     OrganizationId: 0
@@ -31,13 +32,14 @@ export class OrganizationsPage {
     public StorageService: StorageService,
     public navCtrl: NavController,
     public toastCtrl: ToastController,
+    public api: Api,
     public translateService: TranslateService,
     public user: User,
     public GlobalVars: GlobalVars,
     private device: Device,
     public menu: MenuController, private loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-
+    this.apiURL = api.url;
     let loadingPopup = this.loadingCtrl.create({
       content: 'Processing...'
     });

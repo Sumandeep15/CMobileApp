@@ -23,7 +23,7 @@ import { SMS } from '@ionic-native/sms';
 import { AlertController, Platform } from 'ionic-angular';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
-
+import { Network } from '@ionic-native/network';
 const firebase = {
   // your firebase web config
 }
@@ -51,6 +51,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   imports: [
+
     BrowserModule,
     HttpClientModule,
     IonicImageViewerModule,
@@ -83,7 +84,8 @@ export function provideSettings(storage: Storage) {
     Device,
     StorageService, News, Schedule, Events, Connections, GlobalVars,
     SMS, Services, AlertController,
-    Gallery, Notifications
+    Gallery, Notifications,
+      Network
   ]
 })
 export class AppModule { }

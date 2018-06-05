@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
 
-import { Connections, User ,GlobalVars} from '../../providers/providers';
+import { Api, Connections, User, GlobalVars } from '../../providers/providers';
 import { Device } from '@ionic-native/device';
 import { EventsPage, SchedulePage } from '../pages';
-import { MenuController, LoadingController,AlertController } from 'ionic-angular';
+import { MenuController, LoadingController, AlertController } from 'ionic-angular';
 
 /**
 /**
@@ -22,20 +22,23 @@ import { MenuController, LoadingController,AlertController } from 'ionic-angular
 })
 export class ConnectionsPage {
   currentItems: any;
+  apiURL: any;
   AppUserModel: { OrganizationId: any } = {
 
     OrganizationId: 0
   };
   constructor(public currentItemsnavCtrl: NavController, public navParams: NavParams,
     public Connections: Connections,
+    public api: Api,
     public navCtrl: NavController,
     public toastCtrl: ToastController,
     public translateService: TranslateService,
     public user: User,
     private device: Device,
     public menu: MenuController, private loadingCtrl: LoadingController,
-    public GlobalVars:GlobalVars,
+    public GlobalVars: GlobalVars,
     private alertCtrl: AlertController) {
+    this.apiURL = api.url
     let loadingPopup = this.loadingCtrl.create({
       content: 'Processing...'
     });
@@ -59,7 +62,7 @@ export class ConnectionsPage {
 
     });
   }
-delete(item: any) {
+  delete(item: any) {
     this.currentItems.splice(this.currentItems.indexOf(item), 1);
   }
   ionViewDidLoad() {
@@ -90,9 +93,9 @@ delete(item: any) {
         setTimeout(() => {
           loadingPopup.dismiss();
         }, 500);
-       this.currentItems.splice(this.currentItems.indexOf(item), 1);
+        this.currentItems.splice(this.currentItems.indexOf(item), 1);
 
-      let alert1 = this.alertCtrl.create({
+        let alert1 = this.alertCtrl.create({
           title: 'Message',
           subTitle: 'Removed Successfully.',
           buttons: ['OK']
@@ -112,8 +115,8 @@ delete(item: any) {
       toast.present();
     });
   }
- viewCompany(item) {
-  this.GlobalVars.setMyGlobalVar(item);
+  viewCompany(item) {
+    this.GlobalVars.setMyGlobalVar(item);
     this.navCtrl.setRoot("OrganizationDetailPage", { 'record': item })
   }
 }

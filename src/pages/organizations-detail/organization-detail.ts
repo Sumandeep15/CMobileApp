@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as $ from 'jquery';
 import { Items } from '../../providers/providers';
 import { MenuController } from 'ionic-angular';
-import { Organizations, StorageService, User,GlobalVars } from '../../providers/providers';
+import { Api, Organizations, StorageService, User, GlobalVars } from '../../providers/providers';
 @IonicPage()
 @Component({
   selector: 'page-organization-detail',
@@ -12,16 +12,18 @@ import { Organizations, StorageService, User,GlobalVars } from '../../providers/
 export class OrganizationDetailPage {
   // item: any;
   currentItem: any;
-
-   AppUserModel: {aboutUs:any,
-  contactUs:any } = {
+  apiURL: any;
+  AppUserModel: {
+    aboutUs: any,
+    contactUs: any
+  } = {
 
     aboutUs: "-",
-    contactUs:"-"
+    contactUs: "-"
   };
-  constructor(public navCtrl: NavController, public GlobalVars: GlobalVars, public navParams: NavParams, public menu: MenuController, public Organizations: Organizations) {
+  constructor(public navCtrl: NavController, public api: Api, public GlobalVars: GlobalVars, public navParams: NavParams, public menu: MenuController, public Organizations: Organizations) {
     this.currentItem = this.GlobalVars.getMyGlobalVar();
-
+    this.apiURL = api.url;
     // alert(JSON.stringify(this.AppUserModel))
     // this.Events.GetCompanyActivity(this.AppUserModel).subscribe((resp: any) => {
 

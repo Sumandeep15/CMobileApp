@@ -12,6 +12,7 @@ import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { Subject } from 'rxjs/Subject';
 import { tap } from 'rxjs/operators';
+import { Network } from '@ionic-native/network';
 @Component({
   templateUrl: 'app.html',
 
@@ -33,7 +34,7 @@ export class MyApp {
     //   { title: 'Menu', component: 'MenuPage' },
     { title: 'Home', component: HomePage },
     { title: 'My Connections', component: ConnectionsPage },
-       { title: 'Notifications', component: NotificationsPage },
+    { title: 'Notifications', component: NotificationsPage },
     { title: 'Logout', component: "WelcomePage" }
   ]
   pages1: any[] = [
@@ -57,7 +58,7 @@ export class MyApp {
     { title: 'Video Gallery', component: VideogalleryPage },
 
   ]
-  constructor( toastCtrl: ToastController, private alertCtrl: AlertController, private push: Push, private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private Network: Network, toastCtrl: ToastController, private alertCtrl: AlertController, private push: Push, private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
     platform.ready().then(() => {
 
       // Okay, so the platform is ready and our plugins are available.
@@ -67,6 +68,18 @@ export class MyApp {
     });
     this.initTranslate();
 
+    let disconnectSub = Network.onDisconnect().subscribe(() => {
+    let toast = toastCtrl.create({
+          message: "Internet not working",
+          duration: 3000,
+          position: 'top'
+        });
+         toast.present();
+    });
+
+    let connectSub = Network.onConnect().subscribe(() => {
+       // alert("Good");
+    });
 
   }
 
