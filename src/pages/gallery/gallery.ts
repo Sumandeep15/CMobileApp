@@ -34,7 +34,8 @@ export class GalleryPage {
 
     private device: Device,
     public menu: MenuController, private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController) 
+  {
 
 
     this.AppUserModel.OrganizationId = this.GlobalVars.getMyGlobalVar().id;
@@ -50,9 +51,10 @@ export class GalleryPage {
         setTimeout(() => {
           loadingPopup.dismiss();
         }, 500);
-     //   alert("sssghhghghghs")
-        this.currentItems = resp.data[0].lst;
-      //  alert(JSON.stringify(this.currentItems))
+     
+        this.currentItems = resp.data;
+        this.currentItems.splice(0);
+        console.log(JSON.stringify(this.currentItems))
         if (this.currentItems == null || this.currentItems.length < 1) {
           let alert1 = this.alertCtrl.create({
             title: 'Message',

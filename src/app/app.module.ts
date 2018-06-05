@@ -23,6 +23,7 @@ import { SMS } from '@ionic-native/sms';
 import { AlertController, Platform } from 'ionic-angular';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { VideoPipe } from "../pipes/video-link/video-link";
 
 const firebase = {
   // your firebase web config
@@ -54,6 +55,7 @@ export function provideSettings(storage: Storage) {
     BrowserModule,
     HttpClientModule,
     IonicImageViewerModule,
+    
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
