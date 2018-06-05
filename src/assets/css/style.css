@@ -1722,5 +1722,9 @@
             @media (max-width:375px) {}
             @media (max-width: 360px) {}
             @media (max-width:320px) {}
+            .gallery-pic figure a img {
+                width: 100%;
+                height: 300px;
+            }
         }
         
