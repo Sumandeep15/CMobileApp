@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
-import { Gallery, User, GlobalVars } from '../../providers/providers';
+import { Api, Gallery, User, GlobalVars } from '../../providers/providers';
 import { Device } from '@ionic-native/device';
 import { MenuController, LoadingController, AlertController } from 'ionic-angular';
 import * as $ from 'jquery';
+
 /**
  * Generated class for the OrganizationsPage page.
  *
@@ -20,6 +21,7 @@ import * as $ from 'jquery';
 export class GalleryPage {
   currentItems: [any];
   galleryType = 'regular';
+  apiUrl: any;
   AppUserModel: { OrganizationId: any } = {
 
     OrganizationId: 0
@@ -31,13 +33,12 @@ export class GalleryPage {
     public toastCtrl: ToastController,
     public translateService: TranslateService,
     public user: User,
-
+    public api: Api,
     private device: Device,
     public menu: MenuController, private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController) 
-  {
+    private alertCtrl: AlertController) {
 
-
+    this.apiUrl = api.url;
     this.AppUserModel.OrganizationId = this.GlobalVars.getMyGlobalVar().id;
     if (!user.authenticated) {
       this.navCtrl.push("LoginPage");
@@ -51,10 +52,11 @@ export class GalleryPage {
         setTimeout(() => {
           loadingPopup.dismiss();
         }, 500);
-     
-        this.currentItems = resp.data;
-        this.currentItems.splice(0);
-        console.log(JSON.stringify(this.currentItems))
+
+        this.currentItems = resp.data[0].lst;
+        //this.currentItems.splice(0);
+        console.log(JSON.stringify(this.currentItems));
+        alert(this.currentItems.length);
         if (this.currentItems == null || this.currentItems.length < 1) {
           let alert1 = this.alertCtrl.create({
             title: 'Message',
