@@ -53,10 +53,10 @@ export class GalleryPage {
           loadingPopup.dismiss();
         }, 500);
 
-        this.currentItems = resp.data[0].lst;
+        this.currentItems = resp.data;
         //this.currentItems.splice(0);
         console.log(JSON.stringify(this.currentItems));
-        alert(this.currentItems.length);
+        console.log(this.currentItems.length);
         if (this.currentItems == null || this.currentItems.length < 1) {
           let alert1 = this.alertCtrl.create({
             title: 'Message',

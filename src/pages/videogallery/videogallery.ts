@@ -51,7 +51,6 @@ export class VideogalleryPage {
         }, 500);
 
         this.currentItems = resp.data;
-        alert(JSON.stringify(this.currentItems));
         console.log(JSON.stringify(this.currentItems));
 
           if (this.currentItems == null || this.currentItems.length < 1) {

@@ -1,8 +1,8 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-			<ion-icon name="menu"></ion-icon>
-		</button>
+            <ion-icon name="menu"></ion-icon>
+        </button>
         <ion-title>Gallery</ion-title>
     </ion-navbar>
 </ion-header>
@@ -10,19 +10,23 @@
 
 <ion-content padding>
 
+    <div class="card z-depth-1-half">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div *ngFor="let gal of currentItems">
+                        <div *ngFor="let img of gal.lst">
+                            <div class="gallery-pic">
+                                <figure align="center">
 
-    <div class="card-body">
-        <div class="row" *ngFor="let img of currentItems">
-            <div class="col">
-                <div class="gallery-pic">
-                    <figure align="center">
+                                    <img src="{{apiUrl}}{{img.mediaPath}}/{{img.mediaName}}" class="img-thumbnail img-fluid mx-auto d-block  z-depth-1">
 
-                        <img src="{{apiUrl}}{{img.mediaPath}}/{{img.mediaName}}" class="img-thumbnail img-fluid z-depth-1">
-
-                    </figure>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </ion-content>
